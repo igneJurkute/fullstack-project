@@ -1,12 +1,20 @@
 {
-  "name": "fullstack-project",
+  "name": "fullstack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm-run-all --parallel client server",
+    "dev2": "npm-run-all --parallel client:dev server:dev",
+    "client": "cd ./client && npm start",
+    "server": "cd ./server && npm run dev",
+    "server:dev": "npm --prefix ./server/ run dev",
+    "client:dev": "npm --prefix ./client/ run start"
   },
   "keywords": [],
   "author": "Igne",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
 }
